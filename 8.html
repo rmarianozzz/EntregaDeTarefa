@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reordenar Lista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reordenar Itens da Lista</h2>
+    <ul id="lista">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <button onclick="reordenarLista()">Reordenar</button>
+    
+    <script>
+        function reordenarLista() {
+            var lista = document.getElementById("lista");
+            var itens = Array.from(lista.children);
+            itens.sort(() => Math.random() - 0.5);
+            lista.innerHTML = "";
+            itens.forEach(item => lista.appendChild(item));
+        }
+    </script>
+</body>
+</html>

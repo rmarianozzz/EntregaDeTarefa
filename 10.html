@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Carregamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #barraProgresso {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+            height: 30px;
+            overflow: hidden;
+        }
+        #progresso {
+            height: 100%;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simulação de Carregamento</h2>
+    <button onclick="iniciarCarregamento()">Iniciar Carregamento</button>
+    <div id="barraProgresso">
+        <div id="progresso">0%</div>
+    </div>
+    
+    <script>
+        function iniciarCarregamento() {
+            var barra = document.getElementById("progresso");
+            var largura = 0;
+            var intervalo = setInterval(function() {
+                if (largura >= 100) {
+                    clearInterval(intervalo);
+                } else {
+                    largura++;
+                    barra.style.width = largura + "%";
+                    barra.innerText = largura + "%";
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>
